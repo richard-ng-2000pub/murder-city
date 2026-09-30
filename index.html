@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b2b39" />
+  <meta name="description" content="Murder City answer checker — verify a district, avenue, and street without revealing the final answer." />
+  <title>Murder City — Hideout Checker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="confettiCanvas" aria-hidden="true"></canvas>
+  <div class="police-flash" id="policeFlash" aria-hidden="true"></div>
+
+  <header class="hero">
+    <div class="hero__art" aria-hidden="true">
+      <img src="assets/cover.png" alt="" />
+    </div>
+    <div class="hero__shade"></div>
+    <div class="hero__content shell">
+      <p class="eyebrow">Official Investigation Terminal</p>
+      <h1><span>MURDER</span> CITY</h1>
+      <p class="hero__tagline">7,000 Buildings. One Hidden Killer.</p>
+      <div class="hero__meta" aria-label="Case facts">
+        <span>18 clues</span><span>35 legend images</span><span>1 final hideout</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="shell main-grid">
+    <section class="case-panel" aria-labelledby="checkerTitle">
+      <div class="panel-kicker">CASE FILE / ADDRESS CHECK</div>
+      <h2 id="checkerTitle">Breach a suspected location</h2>
+      <p class="intro">Enter the exact District, Avenue, and Street from your puzzle. The terminal will scan the city and tell you whether the killer is there.</p>
+
+      <div id="dataModeNotice" class="data-notice" hidden>
+        <strong>Owner setup notice:</strong> exact cell-to-legend mapping has not been imported yet. Answer checking is exact, but the roulette icon uses a deterministic demo fallback until the Excel map is loaded.
+      </div>
+
+      <form id="searchForm" class="search-form" novalidate>
+        <label>
+          <span>District</span>
+          <input id="district" name="district" inputmode="numeric" autocomplete="off" placeholder="e.g. 38" min="1" max="999" required />
+        </label>
+        <label>
+          <span>Avenue</span>
+          <input id="avenue" name="avenue" autocomplete="off" placeholder="e.g. B" maxlength="3" required />
+        </label>
+        <label>
+          <span>Street</span>
+          <input id="street" name="street" inputmode="numeric" autocomplete="off" placeholder="e.g. 3" min="1" max="999" required />
+        </label>
+        <button id="breachBtn" class="breach-btn" type="submit">
+          <span class="breach-btn__icon">⌖</span>
+          <span>BREACH ADDRESS</span>
+        </button>
+      </form>
+      <p id="formError" class="form-error" role="alert" aria-live="polite"></p>
+
+      <div class="privacy-note">
+        <span class="privacy-note__dot"></span>
+        No spoiler is displayed until the correct location is entered.
+      </div>
+    </section>
+
+    <section class="scan-panel" aria-labelledby="scanTitle">
+      <div class="scan-header">
+        <div>
+          <div class="panel-kicker">LIVE LEGEND SCAN</div>
+          <h2 id="scanTitle">City visual match</h2>
+        </div>
+        <button id="soundBtn" class="sound-btn" type="button" aria-pressed="false" title="Toggle scan sound">Sound: Off</button>
+      </div>
+
+      <div class="scanner" id="scanner">
+        <div class="scanner__rail scanner__rail--top"></div>
+        <div class="scanner__viewport">
+          <div class="scan-lines" aria-hidden="true"></div>
+          <div id="legendCard" class="legend-card" aria-live="polite">
+            <img id="legendImage" src="assets/legends/legend-01.png" alt="Legend image 01" />
+            <div id="legendNumber" class="legend-number">LEGEND 01</div>
+          </div>
+          <div class="crosshair" aria-hidden="true"><i></i><b></b></div>
+        </div>
+        <div class="scanner__rail scanner__rail--bottom"></div>
+      </div>
+
+      <div id="scanStatus" class="scan-status" aria-live="polite">
+        <span class="status-light"></span>
+        TERMINAL READY
+      </div>
+    </section>
+
+    <section id="resultPanel" class="result-panel" aria-live="polite" hidden>
+      <div id="resultStamp" class="result-stamp"></div>
+      <div class="result-copy">
+        <p id="resultKicker" class="panel-kicker"></p>
+        <h2 id="resultTitle"></h2>
+        <p id="resultMessage" class="result-message"></p>
+      </div>
+
+      <div id="correctDetails" class="correct-details" hidden>
+        <div class="address-card">
+          <span>FINAL ADDRESS</span>
+          <strong id="finalAddress"></strong>
+        </div>
+        <div class="final-deduction">
+          <h3>Why this is the only surviving address</h3>
+          <p id="finalDeduction"></p>
+        </div>
+        <div id="evidenceGrid" class="evidence-grid"></div>
+      </div>
+
+      <button id="tryAgainBtn" type="button" class="try-again">Check another address</button>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer__inner">
+      <span>Murder City · Reader Answer Checker</span>
+      <span>Built for GitHub Pages · No external libraries</span>
+    </div>
+  </footer>
+
+  <script src="data/case-config.js"></script>
+  <script src="data/cell-legends.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
