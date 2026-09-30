@@ -1,0 +1,36 @@
+﻿image_id,filename,key,label,kind,source_cell_count
+1,legend-01.png,apartment_variant_1,Apartment Building · Variant 1,apartment,1218
+2,legend-02.png,apartment_variant_2,Apartment Building · Variant 2,apartment,1224
+3,legend-03.png,apartment_variant_3,Apartment Building · Variant 3,apartment,1223
+4,legend-04.png,apartment_variant_4,Apartment Building · Variant 4,apartment,1218
+5,legend-05.png,pharmacy,Pharmacy,landmark,58
+6,legend-06.png,laundromat,Laundromat,landmark,70
+7,legend-07.png,supermarket,Supermarket,landmark,70
+8,legend-08.png,bank,Bank,landmark,66
+9,legend-09.png,parking,Parking Lot,landmark,77
+10,legend-10.png,post_office,Post Office,landmark,56
+11,legend-11.png,coffee_shop,Coffee Shop,landmark,70
+12,legend-12.png,church,Church,landmark,74
+13,legend-13.png,pizzeria,Pizzeria,landmark,72
+14,legend-14.png,diner,Diner,landmark,65
+15,legend-15.png,park,Park,landmark,74
+16,legend-16.png,bar,Bar,landmark,61
+17,legend-17.png,gas_station,Gas Station,landmark,76
+18,legend-18.png,fire_station,Fire Station,landmark,77
+19,legend-19.png,library,Library,landmark,69
+20,legend-20.png,movie_theater,Movie Theater,landmark,69
+21,legend-21.png,hair_salon,Hair Salon,landmark,73
+22,legend-22.png,school,School,landmark,77
+23,legend-23.png,train_station,Train Station,landmark,71
+24,legend-24.png,hospital,Hospital,landmark,64
+25,legend-25.png,hotel,Hotel,landmark,69
+26,legend-26.png,city_hall,City Hall,landmark,77
+27,legend-27.png,museum,Museum,landmark,58
+28,legend-28.png,police_station,Police Station,landmark,73
+29,legend-29.png,stadium,Stadium,landmark,58
+30,legend-30.png,bakery,Bakery,landmark,57
+31,legend-31.png,bookstore,Bookstore,landmark,78
+32,legend-32.png,restaurant,Restaurant,landmark,62
+33,legend-33.png,gym,Gym,landmark,60
+34,legend-34.png,florist,Florist,landmark,69
+35,legend-35.png,bus_station,Bus Station,landmark,67
